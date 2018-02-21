@@ -25,6 +25,7 @@
     "metal"
   ],
   "dependencies": {
+    "malarkey": "^1.3.3",
     "metal-soy": "^2.0.0"
   },
   "devDependencies": {
