@@ -1,4 +1,3 @@
-import core from 'metal';
 import templates from './TerminalComponent.soy.js';
 import Component from 'metal-component';
 import Soy from 'metal-soy';
@@ -352,11 +351,7 @@ class TerminalComponent extends Component {
     }
   }
 }
+
 Soy.register(TerminalComponent, templates);
-
-TerminalComponent.STATE = {
-
-};
-
 export {TerminalComponent};
 export default TerminalComponent;

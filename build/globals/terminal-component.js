@@ -76,7 +76,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.string = exports.object = exports.Disposable = exports.async = exports.array = undefined;
 
-var _core = __webpack_require__(27);
+var _core = __webpack_require__(28);
 
 Object.keys(_core).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -90,23 +90,23 @@ Object.keys(_core).forEach(function (key) {
 
 var _core2 = _interopRequireDefault(_core);
 
-var _array = __webpack_require__(28);
+var _array = __webpack_require__(29);
 
 var _array2 = _interopRequireDefault(_array);
 
-var _async = __webpack_require__(29);
+var _async = __webpack_require__(30);
 
 var _async2 = _interopRequireDefault(_async);
 
-var _Disposable = __webpack_require__(32);
+var _Disposable = __webpack_require__(33);
 
 var _Disposable2 = _interopRequireDefault(_Disposable);
 
-var _object = __webpack_require__(33);
+var _object = __webpack_require__(34);
 
 var _object2 = _interopRequireDefault(_object);
 
-var _string = __webpack_require__(34);
+var _string = __webpack_require__(35);
 
 var _string2 = _interopRequireDefault(_string);
 
@@ -131,7 +131,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ComponentRenderer = exports.ComponentRegistry = exports.ComponentDataManager = exports.Component = undefined;
 
-var _events = __webpack_require__(11);
+var _events = __webpack_require__(10);
 
 Object.keys(_events).forEach(function (key) {
 	if (key === "default" || key === "__esModule") return;
@@ -776,6 +776,80 @@ IncrementalDOM.attributes[IncrementalDOM.symbols.default] = buildHandleCall('att
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.addListenersFromObj = addListenersFromObj;
+exports.getComponentFn = getComponentFn;
+
+var _metal = __webpack_require__(0);
+
+/**
+ * Adds the listeners specified in the given object.
+ * @param {!Component} component
+ * @param {Object} events
+ * @return {!Array<!EventHandle>} Handles from all subscribed events.
+ */
+function addListenersFromObj(component, events) {
+	var eventNames = Object.keys(events || {});
+	var handles = [];
+	for (var i = 0; i < eventNames.length; i++) {
+		var info = extractListenerInfo_(component, events[eventNames[i]]);
+		if (info.fn) {
+			var handle = void 0;
+			if (info.selector) {
+				handle = component.delegate(eventNames[i], info.selector, info.fn); // eslint-disable-line
+			} else {
+				handle = component.on(eventNames[i], info.fn);
+			}
+			handles.push(handle);
+		}
+	}
+	return handles;
+}
+
+/**
+ * Extracts listener info from the given value.
+ * @param {!Component} component
+ * @param {function()|string|{selector:string,fn:function()}|string} value
+ * @return {!{selector:string,fn:function()}}
+ * @protected
+ */
+function extractListenerInfo_(component, value) {
+	var info = {
+		fn: value
+	};
+	if ((0, _metal.isObject)(value) && !(0, _metal.isFunction)(value)) {
+		info.selector = value.selector;
+		info.fn = value.fn;
+	}
+	if ((0, _metal.isString)(info.fn)) {
+		info.fn = getComponentFn(component, info.fn);
+	}
+	return info;
+}
+
+/**
+ * Gets the listener function from its name. Throws an error if none exist.
+ * @param {!Component} component
+ * @param {string} fnName
+ * @return {function()}
+ */
+function getComponentFn(component, fnName) {
+	if ((0, _metal.isFunction)(component[fnName])) {
+		return component[fnName].bind(component);
+	} else {
+		console.error('No function named ' + fnName + ' was found in the component\n\t\t\t"' + (0, _metal.getFunctionName)(component.constructor) + '". Make sure that you specify\n\t\t\tvalid function names when adding inline listeners');
+	}
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 /**
@@ -1117,80 +1191,6 @@ function isServerSide() {
  */
 function nullFunction() {}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.addListenersFromObj = addListenersFromObj;
-exports.getComponentFn = getComponentFn;
-
-var _metal = __webpack_require__(0);
-
-/**
- * Adds the listeners specified in the given object.
- * @param {!Component} component
- * @param {Object} events
- * @return {!Array<!EventHandle>} Handles from all subscribed events.
- */
-function addListenersFromObj(component, events) {
-	var eventNames = Object.keys(events || {});
-	var handles = [];
-	for (var i = 0; i < eventNames.length; i++) {
-		var info = extractListenerInfo_(component, events[eventNames[i]]);
-		if (info.fn) {
-			var handle = void 0;
-			if (info.selector) {
-				handle = component.delegate(eventNames[i], info.selector, info.fn); // eslint-disable-line
-			} else {
-				handle = component.on(eventNames[i], info.fn);
-			}
-			handles.push(handle);
-		}
-	}
-	return handles;
-}
-
-/**
- * Extracts listener info from the given value.
- * @param {!Component} component
- * @param {function()|string|{selector:string,fn:function()}|string} value
- * @return {!{selector:string,fn:function()}}
- * @protected
- */
-function extractListenerInfo_(component, value) {
-	var info = {
-		fn: value
-	};
-	if ((0, _metal.isObject)(value) && !(0, _metal.isFunction)(value)) {
-		info.selector = value.selector;
-		info.fn = value.fn;
-	}
-	if ((0, _metal.isString)(info.fn)) {
-		info.fn = getComponentFn(component, info.fn);
-	}
-	return info;
-}
-
-/**
- * Gets the listener function from its name. Throws an error if none exist.
- * @param {!Component} component
- * @param {string} fnName
- * @return {function()}
- */
-function getComponentFn(component, fnName) {
-	if ((0, _metal.isFunction)(component[fnName])) {
-		return component[fnName].bind(component);
-	} else {
-		console.error('No function named ' + fnName + ' was found in the component\n\t\t\t"' + (0, _metal.getFunctionName)(component.constructor) + '". Make sure that you specify\n\t\t\tvalid function names when adding inline listeners');
-	}
-}
 
 /***/ }),
 /* 12 */
@@ -3426,11 +3426,7 @@ exports.TerminalComponent = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _metal = __webpack_require__(0);
-
-var _metal2 = _interopRequireDefault(_metal);
-
-var _TerminalComponentSoy = __webpack_require__(35);
+var _TerminalComponentSoy = __webpack_require__(27);
 
 var _TerminalComponentSoy2 = _interopRequireDefault(_TerminalComponentSoy);
 
@@ -3792,14 +3788,114 @@ var TerminalComponent = function (_Component) {
 }(_metalComponent2.default);
 
 _metalSoy2.default.register(TerminalComponent, _TerminalComponentSoy2.default);
-
-TerminalComponent.STATE = {};
-
 exports.TerminalComponent = TerminalComponent;
 exports.default = TerminalComponent;
 
 /***/ }),
 /* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.templates = exports.TerminalComponent = undefined;
+
+var _metalComponent = __webpack_require__(1);
+
+var _metalComponent2 = _interopRequireDefault(_metalComponent);
+
+var _metalSoy = __webpack_require__(19);
+
+var _metalSoy2 = _interopRequireDefault(_metalSoy);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* jshint ignore:start */
+
+
+var templates;
+goog.loadModule(function (exports) {
+  var soy = goog.require('soy');
+  var soydata = goog.require('soydata');
+  // This file was automatically generated from TerminalComponent.soy.
+  // Please don't edit this file by hand.
+
+  /**
+   * @fileoverview Templates in namespace TerminalComponent.
+   * @public
+   */
+
+  goog.module('TerminalComponent.incrementaldom');
+
+  var incrementalDom = goog.require('incrementaldom');
+  var soyIdom = goog.require('soy.idom');
+
+  /**
+   * @param {Object<string, *>=} opt_data
+   * @param {Object<string, *>=} opt_ijData
+   * @param {Object<string, *>=} opt_ijData_deprecated
+   * @return {void}
+   * @suppress {checkTypes}
+   */
+  function $render(opt_data, opt_ijData, opt_ijData_deprecated) {
+    opt_ijData = opt_ijData_deprecated || opt_ijData;
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-console');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-banner');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-controls');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementClose('div');
+    incrementalDom.elementClose('div');
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-content');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpen('pre');
+    incrementalDom.elementClose('pre');
+    incrementalDom.elementClose('div');
+    incrementalDom.elementClose('div');
+  }
+  exports.render = $render;
+  if (goog.DEBUG) {
+    $render.soyTemplateName = 'TerminalComponent.render';
+  }
+
+  exports.render.params = [];
+  exports.render.types = {};
+  exports.templates = templates = exports;
+  return exports;
+});
+
+var TerminalComponent = function (_Component) {
+  _inherits(TerminalComponent, _Component);
+
+  function TerminalComponent() {
+    _classCallCheck(this, TerminalComponent);
+
+    return _possibleConstructorReturn(this, (TerminalComponent.__proto__ || Object.getPrototypeOf(TerminalComponent)).apply(this, arguments));
+  }
+
+  return TerminalComponent;
+}(_metalComponent2.default);
+
+_metalSoy2.default.register(TerminalComponent, templates);
+exports.TerminalComponent = TerminalComponent;
+exports.templates = templates;
+exports.default = templates;
+/* jshint ignore:end */
+
+/***/ }),
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3815,7 +3911,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.core = undefined;
 
-var _coreNamed = __webpack_require__(10);
+var _coreNamed = __webpack_require__(11);
 
 Object.keys(_coreNamed).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -3835,7 +3931,7 @@ exports.default = core;
 exports.core = core;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3982,7 +4078,7 @@ var array = function () {
 exports.default = array;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3997,7 +4093,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _coreNamed = __webpack_require__(10);
+var _coreNamed = __webpack_require__(11);
 
 var async = {};
 
@@ -4223,10 +4319,10 @@ async.nextTick.wrapCallback_ = function (callback) {
 };
 
 exports.default = async;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31).setImmediate))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -4279,7 +4375,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(31);
+__webpack_require__(32);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -4293,7 +4389,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -4486,7 +4582,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(7)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4565,7 +4661,7 @@ var Disposable = function () {
 exports.default = Disposable;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4691,7 +4787,7 @@ var object = function () {
 exports.default = object;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4820,109 +4916,6 @@ var string = function () {
 exports.default = string;
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.templates = exports.TerminalComponent = undefined;
-
-var _metalComponent = __webpack_require__(1);
-
-var _metalComponent2 = _interopRequireDefault(_metalComponent);
-
-var _metalSoy = __webpack_require__(19);
-
-var _metalSoy2 = _interopRequireDefault(_metalSoy);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* jshint ignore:start */
-
-
-var templates;
-goog.loadModule(function (exports) {
-  var soy = goog.require('soy');
-  var soydata = goog.require('soydata');
-  // This file was automatically generated from TerminalComponent.soy.
-  // Please don't edit this file by hand.
-
-  /**
-   * @fileoverview Templates in namespace TerminalComponent.
-   * @public
-   */
-
-  goog.module('TerminalComponent.incrementaldom');
-
-  var incrementalDom = goog.require('incrementaldom');
-  var soyIdom = goog.require('soy.idom');
-
-  /**
-   * @param {Object<string, *>=} opt_data
-   * @param {Object<string, *>=} opt_ijData
-   * @param {Object<string, *>=} opt_ijData_deprecated
-   * @return {void}
-   * @suppress {checkTypes}
-   */
-  function $render(opt_data, opt_ijData, opt_ijData_deprecated) {
-    opt_ijData = opt_ijData_deprecated || opt_ijData;
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-console');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-banner');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-controls');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementClose('div');
-    incrementalDom.elementClose('div');
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-content');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpen('pre');
-    incrementalDom.elementClose('pre');
-    incrementalDom.elementClose('div');
-    incrementalDom.elementClose('div');
-  }
-  exports.render = $render;
-  if (goog.DEBUG) {
-    $render.soyTemplateName = 'TerminalComponent.render';
-  }
-
-  exports.render.params = [];
-  exports.render.types = {};
-  exports.templates = templates = exports;
-  return exports;
-});
-
-var TerminalComponent = function (_Component) {
-  _inherits(TerminalComponent, _Component);
-
-  function TerminalComponent() {
-    _classCallCheck(this, TerminalComponent);
-
-    return _possibleConstructorReturn(this, (TerminalComponent.__proto__ || Object.getPrototypeOf(TerminalComponent)).apply(this, arguments));
-  }
-
-  return TerminalComponent;
-}(_metalComponent2.default);
-
-_metalSoy2.default.register(TerminalComponent, templates);
-exports.TerminalComponent = TerminalComponent;
-exports.templates = templates;
-exports.default = templates;
-/* jshint ignore:end */
-
-/***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4937,7 +4930,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _events = __webpack_require__(11);
+var _events = __webpack_require__(10);
 
 var _metal = __webpack_require__(0);
 
