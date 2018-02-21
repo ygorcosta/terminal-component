@@ -76,7 +76,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.string = exports.object = exports.Disposable = exports.async = exports.array = undefined;
 
-var _core = __webpack_require__(28);
+var _core = __webpack_require__(27);
 
 Object.keys(_core).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -90,23 +90,23 @@ Object.keys(_core).forEach(function (key) {
 
 var _core2 = _interopRequireDefault(_core);
 
-var _array = __webpack_require__(29);
+var _array = __webpack_require__(28);
 
 var _array2 = _interopRequireDefault(_array);
 
-var _async = __webpack_require__(30);
+var _async = __webpack_require__(29);
 
 var _async2 = _interopRequireDefault(_async);
 
-var _Disposable = __webpack_require__(33);
+var _Disposable = __webpack_require__(32);
 
 var _Disposable2 = _interopRequireDefault(_Disposable);
 
-var _object = __webpack_require__(34);
+var _object = __webpack_require__(33);
 
 var _object2 = _interopRequireDefault(_object);
 
-var _string = __webpack_require__(35);
+var _string = __webpack_require__(34);
 
 var _string2 = _interopRequireDefault(_string);
 
@@ -143,7 +143,7 @@ Object.keys(_events).forEach(function (key) {
 	});
 });
 
-var _Component = __webpack_require__(36);
+var _Component = __webpack_require__(35);
 
 var _Component2 = _interopRequireDefault(_Component);
 
@@ -151,7 +151,7 @@ var _ComponentDataManager = __webpack_require__(15);
 
 var _ComponentDataManager2 = _interopRequireDefault(_ComponentDataManager);
 
-var _ComponentRegistry = __webpack_require__(49);
+var _ComponentRegistry = __webpack_require__(48);
 
 var _ComponentRegistry2 = _interopRequireDefault(_ComponentRegistry);
 
@@ -184,7 +184,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.dom = undefined;
 
-var _domNamed = __webpack_require__(38);
+var _domNamed = __webpack_require__(37);
 
 Object.keys(_domNamed).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -215,11 +215,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.EventHandler = exports.EventHandle = exports.EventEmitterProxy = exports.EventEmitter = undefined;
 
-var _EventEmitter = __webpack_require__(40);
+var _EventEmitter = __webpack_require__(39);
 
 var _EventEmitter2 = _interopRequireDefault(_EventEmitter);
 
-var _EventEmitterProxy = __webpack_require__(41);
+var _EventEmitterProxy = __webpack_require__(40);
 
 var _EventEmitterProxy2 = _interopRequireDefault(_EventEmitterProxy);
 
@@ -227,7 +227,7 @@ var _EventHandle = __webpack_require__(12);
 
 var _EventHandle2 = _interopRequireDefault(_EventHandle);
 
-var _EventHandler = __webpack_require__(42);
+var _EventHandler = __webpack_require__(41);
 
 var _EventHandler2 = _interopRequireDefault(_EventHandler);
 
@@ -331,7 +331,7 @@ var _domData = __webpack_require__(8);
 
 var _domData2 = _interopRequireDefault(_domData);
 
-var _DomEventEmitterProxy = __webpack_require__(43);
+var _DomEventEmitterProxy = __webpack_require__(42);
 
 var _DomEventEmitterProxy2 = _interopRequireDefault(_DomEventEmitterProxy);
 
@@ -343,15 +343,15 @@ var _features = __webpack_require__(14);
 
 var _features2 = _interopRequireDefault(_features);
 
-var _globalEval = __webpack_require__(44);
+var _globalEval = __webpack_require__(43);
 
 var _globalEval2 = _interopRequireDefault(_globalEval);
 
-var _globalEvalStyles = __webpack_require__(45);
+var _globalEvalStyles = __webpack_require__(44);
 
 var _globalEvalStyles2 = _interopRequireDefault(_globalEvalStyles);
 
-__webpack_require__(46);
+__webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1676,11 +1676,11 @@ var _validators = __webpack_require__(17);
 
 var _validators2 = _interopRequireDefault(_validators);
 
-var _Config = __webpack_require__(47);
+var _Config = __webpack_require__(46);
 
 var _Config2 = _interopRequireDefault(_Config);
 
-var _State = __webpack_require__(48);
+var _State = __webpack_require__(47);
 
 var _State2 = _interopRequireDefault(_State);
 
@@ -3426,21 +3426,21 @@ exports.TerminalComponent = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _TerminalComponentSoy = __webpack_require__(27);
-
-var _TerminalComponentSoy2 = _interopRequireDefault(_TerminalComponentSoy);
-
 var _metalComponent = __webpack_require__(1);
 
 var _metalComponent2 = _interopRequireDefault(_metalComponent);
+
+var _malarkey = __webpack_require__(49);
+
+var _malarkey2 = _interopRequireDefault(_malarkey);
 
 var _metalSoy = __webpack_require__(19);
 
 var _metalSoy2 = _interopRequireDefault(_metalSoy);
 
-var _malarkey = __webpack_require__(61);
+var _TerminalComponentSoy = __webpack_require__(61);
 
-var _malarkey2 = _interopRequireDefault(_malarkey);
+var _TerminalComponentSoy2 = _interopRequireDefault(_TerminalComponentSoy);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3798,109 +3798,6 @@ exports.default = TerminalComponent;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.templates = exports.TerminalComponent = undefined;
-
-var _metalComponent = __webpack_require__(1);
-
-var _metalComponent2 = _interopRequireDefault(_metalComponent);
-
-var _metalSoy = __webpack_require__(19);
-
-var _metalSoy2 = _interopRequireDefault(_metalSoy);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* jshint ignore:start */
-
-
-var templates;
-goog.loadModule(function (exports) {
-  var soy = goog.require('soy');
-  var soydata = goog.require('soydata');
-  // This file was automatically generated from TerminalComponent.soy.
-  // Please don't edit this file by hand.
-
-  /**
-   * @fileoverview Templates in namespace TerminalComponent.
-   * @public
-   */
-
-  goog.module('TerminalComponent.incrementaldom');
-
-  var incrementalDom = goog.require('incrementaldom');
-  var soyIdom = goog.require('soy.idom');
-
-  /**
-   * @param {Object<string, *>=} opt_data
-   * @param {Object<string, *>=} opt_ijData
-   * @param {Object<string, *>=} opt_ijData_deprecated
-   * @return {void}
-   * @suppress {checkTypes}
-   */
-  function $render(opt_data, opt_ijData, opt_ijData_deprecated) {
-    opt_ijData = opt_ijData_deprecated || opt_ijData;
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-console');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-banner');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-controls');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementClose('div');
-    incrementalDom.elementClose('div');
-    incrementalDom.elementOpenStart('div');
-    incrementalDom.attr('class', 'start-demo-content');
-    incrementalDom.elementOpenEnd();
-    incrementalDom.elementOpen('pre');
-    incrementalDom.elementClose('pre');
-    incrementalDom.elementClose('div');
-    incrementalDom.elementClose('div');
-  }
-  exports.render = $render;
-  if (goog.DEBUG) {
-    $render.soyTemplateName = 'TerminalComponent.render';
-  }
-
-  exports.render.params = [];
-  exports.render.types = {};
-  exports.templates = templates = exports;
-  return exports;
-});
-
-var TerminalComponent = function (_Component) {
-  _inherits(TerminalComponent, _Component);
-
-  function TerminalComponent() {
-    _classCallCheck(this, TerminalComponent);
-
-    return _possibleConstructorReturn(this, (TerminalComponent.__proto__ || Object.getPrototypeOf(TerminalComponent)).apply(this, arguments));
-  }
-
-  return TerminalComponent;
-}(_metalComponent2.default);
-
-_metalSoy2.default.register(TerminalComponent, templates);
-exports.TerminalComponent = TerminalComponent;
-exports.templates = templates;
-exports.default = templates;
-/* jshint ignore:end */
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 // This file exists just for backwards compatibility, making sure that old
 // default imports for this file still work. It's best to use the named exports
 // for each function instead though, since that allows bundlers like Rollup to
@@ -3931,7 +3828,7 @@ exports.default = core;
 exports.core = core;
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4078,7 +3975,7 @@ var array = function () {
 exports.default = array;
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4319,10 +4216,10 @@ async.nextTick.wrapCallback_ = function (callback) {
 };
 
 exports.default = async;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30).setImmediate))
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -4375,7 +4272,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(32);
+__webpack_require__(31);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -4389,7 +4286,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -4582,7 +4479,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(7)))
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4661,7 +4558,7 @@ var Disposable = function () {
 exports.default = Disposable;
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4787,7 +4684,7 @@ var object = function () {
 exports.default = object;
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4916,7 +4813,7 @@ var string = function () {
 exports.default = string;
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4934,7 +4831,7 @@ var _events = __webpack_require__(10);
 
 var _metal = __webpack_require__(0);
 
-var _sync = __webpack_require__(37);
+var _sync = __webpack_require__(36);
 
 var _metalDom = __webpack_require__(6);
 
@@ -6000,7 +5897,7 @@ var proxyBlackList_ = {
 exports.default = Component;
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6069,7 +5966,7 @@ function syncState(component, changes) {
 }
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6111,7 +6008,7 @@ var _domData = __webpack_require__(8);
 
 var _domData2 = _interopRequireDefault(_domData);
 
-var _DomDelegatedEventHandle = __webpack_require__(39);
+var _DomDelegatedEventHandle = __webpack_require__(38);
 
 var _DomDelegatedEventHandle2 = _interopRequireDefault(_DomDelegatedEventHandle);
 
@@ -6982,7 +6879,7 @@ function triggerSelectorListeners_(container, element, event, defaultFns) {
 }
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7063,7 +6960,7 @@ var DomDelegatedEventHandle = function (_EventHandle) {
 exports.default = DomDelegatedEventHandle;
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7611,7 +7508,7 @@ function toArray(val) {
 exports.default = EventEmitter;
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7855,7 +7752,7 @@ var EventEmitterProxy = function (_Disposable) {
 exports.default = EventEmitterProxy;
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7952,7 +7849,7 @@ var EventHandler = function (_Disposable) {
 exports.default = EventHandler;
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8066,7 +7963,7 @@ var DomEventEmitterProxy = function (_EventEmitterProxy) {
 exports.default = DomEventEmitterProxy;
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8224,7 +8121,7 @@ var globalEval = function () {
 exports.default = globalEval;
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8364,7 +8261,7 @@ var globalEvalStyles = function () {
 exports.default = globalEvalStyles;
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8429,7 +8326,7 @@ if (!(0, _metal.isServerSide)()) {
 }
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8742,7 +8639,7 @@ function setPrimitiveValidators(name) {
 exports.default = Config;
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9581,7 +9478,7 @@ State.KeyStates = {
 exports.default = State;
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9663,6 +9560,189 @@ var ComponentRegistry = function () {
 ComponentRegistry.components_ = {};
 
 exports.default = ComponentRegistry;
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function(root) {
+
+  'use strict';
+
+  var STOPPED  = 0;
+  var STOPPING = 1;
+  var RUNNING  = 2;
+
+  function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+  }
+
+  function noop() {}
+
+  function Malarkey(elem, opts) {
+
+    // allow `Malarkey` to be called without the `new` keyword
+    var self = this;
+    if (!(self instanceof Malarkey)) {
+      return new Malarkey(elem, opts);
+    }
+
+    // default `opts`
+    opts = opts || {};
+    var loop = opts.loop;
+    var typeSpeed = opts.speed || opts.typeSpeed || 50;
+    var deleteSpeed = opts.speed || opts.deleteSpeed || 50;
+    var pauseDelay = opts.delay || opts.pauseDelay || 2000;
+    var postfix = opts.postfix || '';
+    var getter = opts.getter || function(elem) {
+      return elem.innerHTML;
+    };
+    var setter = opts.setter || function(elem, val) {
+      elem.innerHTML = val;
+    };
+
+    // the function queue
+    var fnQueue = [];
+    var argsQueue = [];
+    var i = -1;
+    var state = STOPPED;
+    var pauseCb = noop;
+    function enqueue(fn, args) {
+      fnQueue.push(fn);
+      argsQueue.push(args);
+      if (state != RUNNING) {
+        state = RUNNING;
+        // wait for the remaining functions to be enqueued
+        setTimeout(function() {
+          next();
+        }, 0);
+      }
+      return self;
+    }
+    function next() {
+      if (state != RUNNING) {
+        state = STOPPED;
+        pauseCb(elem);
+        pauseCb = noop;
+        return;
+      }
+      if (++i == fnQueue.length) {
+        if (!loop) {
+          i = fnQueue.length - 1; // set `i` to the last element of `fnQueue`
+          state = STOPPED;
+          return;
+        }
+        i = 0;
+      }
+      fnQueue[i].apply(null, [].concat(next, argsQueue[i]));
+    }
+
+    // internal functions that are `enqueued` via the respective public methods
+    function _type(cb, str, speed) {
+      var len = str.length;
+      if (!len) {
+        return cb();
+      }
+      (function t(i) {
+        setTimeout(function() {
+          setter(elem, getter(elem) + str[i]);
+          i += 1;
+          if (i < len) {
+            t(i);
+          } else {
+            cb();
+          }
+        }, speed);
+      })(0);
+    }
+    function _delete(cb, x, speed) {
+      var curr = getter(elem);
+      var count = curr.length; // default to deleting entire contents of `elem`
+      if (x != null) {
+        if (typeof x == 'string') {
+          // delete the string `x` if and only if `elem` ends with `x`
+          if (endsWith(curr, x + postfix)) {
+            count = x.length + postfix.length;
+          } else {
+            count = 0;
+          }
+        } else {
+          // delete the last `x` characters from `elem`
+          if (x > -1) {
+            count = Math.min(x, count);
+          }
+        }
+      }
+      if (!count) {
+        return cb();
+      }
+      (function d(count) {
+        setTimeout(function() {
+          var curr = getter(elem);
+          if (count) {
+            // drop last char
+            setter(elem, curr.substring(0, curr.length-1));
+            d(count - 1);
+          } else {
+            cb();
+          }
+        }, speed);
+      })(count);
+    }
+    function _clear(cb) {
+      setter(elem, '');
+      cb();
+    }
+    function _call(cb, fn) {
+      fn.call(cb, elem);
+    }
+
+    // expose the public methods
+    self.type = function(str, speed) {
+      return enqueue(_type, [str + postfix, speed || typeSpeed]);
+    };
+    self.delete = function(x, speed) {
+      return enqueue(_delete, [x, speed || deleteSpeed]);
+    };
+    self.clear = function() {
+      return enqueue(_clear);
+    };
+    self.pause = function(delay) {
+      return enqueue(setTimeout, [delay || pauseDelay]);
+    };
+    self.call = function(fn) {
+      return enqueue(_call, [fn]);
+    };
+    self.triggerPause = function(cb) {
+      state = STOPPING;
+      pauseCb = cb || noop;
+      return self;
+    };
+    self.triggerResume = function() {
+      if (state != RUNNING) { // ie. `STOPPED` or `STOPPING`
+        var prevState = state;
+        state = RUNNING;
+        if (prevState == STOPPED) {
+          next();
+        }
+      }
+      return self;
+    };
+    self.isRunning = function() {
+      return state != STOPPED; // ie. `RUNNING` or `STOPPING`
+    };
+
+  }
+
+  /* istanbul ignore else */
+  if (true) {
+    module.exports = Malarkey;
+  } else {
+    root.malarkey = Malarkey;
+  }
+
+})(this);
+
 
 /***/ }),
 /* 50 */
@@ -17505,184 +17585,104 @@ exports.default = SoyAop;
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-(function(root) {
+"use strict";
 
-  'use strict';
 
-  var STOPPED  = 0;
-  var STOPPING = 1;
-  var RUNNING  = 2;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.templates = exports.TerminalComponent = undefined;
 
-  function endsWith(str, suffix) {
-    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+var _metalComponent = __webpack_require__(1);
+
+var _metalComponent2 = _interopRequireDefault(_metalComponent);
+
+var _metalSoy = __webpack_require__(19);
+
+var _metalSoy2 = _interopRequireDefault(_metalSoy);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* jshint ignore:start */
+
+
+var templates;
+goog.loadModule(function (exports) {
+  var soy = goog.require('soy');
+  var soydata = goog.require('soydata');
+  // This file was automatically generated from TerminalComponent.soy.
+  // Please don't edit this file by hand.
+
+  /**
+   * @fileoverview Templates in namespace TerminalComponent.
+   * @public
+   */
+
+  goog.module('TerminalComponent.incrementaldom');
+
+  var incrementalDom = goog.require('incrementaldom');
+  var soyIdom = goog.require('soy.idom');
+
+  /**
+   * @param {Object<string, *>=} opt_data
+   * @param {Object<string, *>=} opt_ijData
+   * @param {Object<string, *>=} opt_ijData_deprecated
+   * @return {void}
+   * @suppress {checkTypes}
+   */
+  function $render(opt_data, opt_ijData, opt_ijData_deprecated) {
+    opt_ijData = opt_ijData_deprecated || opt_ijData;
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-console');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-banner');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-controls');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementClose('div');
+    incrementalDom.elementClose('div');
+    incrementalDom.elementOpenStart('div');
+    incrementalDom.attr('class', 'start-demo-content');
+    incrementalDom.elementOpenEnd();
+    incrementalDom.elementOpen('pre');
+    incrementalDom.elementClose('pre');
+    incrementalDom.elementClose('div');
+    incrementalDom.elementClose('div');
+  }
+  exports.render = $render;
+  if (goog.DEBUG) {
+    $render.soyTemplateName = 'TerminalComponent.render';
   }
 
-  function noop() {}
+  exports.render.params = [];
+  exports.render.types = {};
+  exports.templates = templates = exports;
+  return exports;
+});
 
-  function Malarkey(elem, opts) {
+var TerminalComponent = function (_Component) {
+  _inherits(TerminalComponent, _Component);
 
-    // allow `Malarkey` to be called without the `new` keyword
-    var self = this;
-    if (!(self instanceof Malarkey)) {
-      return new Malarkey(elem, opts);
-    }
+  function TerminalComponent() {
+    _classCallCheck(this, TerminalComponent);
 
-    // default `opts`
-    opts = opts || {};
-    var loop = opts.loop;
-    var typeSpeed = opts.speed || opts.typeSpeed || 50;
-    var deleteSpeed = opts.speed || opts.deleteSpeed || 50;
-    var pauseDelay = opts.delay || opts.pauseDelay || 2000;
-    var postfix = opts.postfix || '';
-    var getter = opts.getter || function(elem) {
-      return elem.innerHTML;
-    };
-    var setter = opts.setter || function(elem, val) {
-      elem.innerHTML = val;
-    };
-
-    // the function queue
-    var fnQueue = [];
-    var argsQueue = [];
-    var i = -1;
-    var state = STOPPED;
-    var pauseCb = noop;
-    function enqueue(fn, args) {
-      fnQueue.push(fn);
-      argsQueue.push(args);
-      if (state != RUNNING) {
-        state = RUNNING;
-        // wait for the remaining functions to be enqueued
-        setTimeout(function() {
-          next();
-        }, 0);
-      }
-      return self;
-    }
-    function next() {
-      if (state != RUNNING) {
-        state = STOPPED;
-        pauseCb(elem);
-        pauseCb = noop;
-        return;
-      }
-      if (++i == fnQueue.length) {
-        if (!loop) {
-          i = fnQueue.length - 1; // set `i` to the last element of `fnQueue`
-          state = STOPPED;
-          return;
-        }
-        i = 0;
-      }
-      fnQueue[i].apply(null, [].concat(next, argsQueue[i]));
-    }
-
-    // internal functions that are `enqueued` via the respective public methods
-    function _type(cb, str, speed) {
-      var len = str.length;
-      if (!len) {
-        return cb();
-      }
-      (function t(i) {
-        setTimeout(function() {
-          setter(elem, getter(elem) + str[i]);
-          i += 1;
-          if (i < len) {
-            t(i);
-          } else {
-            cb();
-          }
-        }, speed);
-      })(0);
-    }
-    function _delete(cb, x, speed) {
-      var curr = getter(elem);
-      var count = curr.length; // default to deleting entire contents of `elem`
-      if (x != null) {
-        if (typeof x == 'string') {
-          // delete the string `x` if and only if `elem` ends with `x`
-          if (endsWith(curr, x + postfix)) {
-            count = x.length + postfix.length;
-          } else {
-            count = 0;
-          }
-        } else {
-          // delete the last `x` characters from `elem`
-          if (x > -1) {
-            count = Math.min(x, count);
-          }
-        }
-      }
-      if (!count) {
-        return cb();
-      }
-      (function d(count) {
-        setTimeout(function() {
-          var curr = getter(elem);
-          if (count) {
-            // drop last char
-            setter(elem, curr.substring(0, curr.length-1));
-            d(count - 1);
-          } else {
-            cb();
-          }
-        }, speed);
-      })(count);
-    }
-    function _clear(cb) {
-      setter(elem, '');
-      cb();
-    }
-    function _call(cb, fn) {
-      fn.call(cb, elem);
-    }
-
-    // expose the public methods
-    self.type = function(str, speed) {
-      return enqueue(_type, [str + postfix, speed || typeSpeed]);
-    };
-    self.delete = function(x, speed) {
-      return enqueue(_delete, [x, speed || deleteSpeed]);
-    };
-    self.clear = function() {
-      return enqueue(_clear);
-    };
-    self.pause = function(delay) {
-      return enqueue(setTimeout, [delay || pauseDelay]);
-    };
-    self.call = function(fn) {
-      return enqueue(_call, [fn]);
-    };
-    self.triggerPause = function(cb) {
-      state = STOPPING;
-      pauseCb = cb || noop;
-      return self;
-    };
-    self.triggerResume = function() {
-      if (state != RUNNING) { // ie. `STOPPED` or `STOPPING`
-        var prevState = state;
-        state = RUNNING;
-        if (prevState == STOPPED) {
-          next();
-        }
-      }
-      return self;
-    };
-    self.isRunning = function() {
-      return state != STOPPED; // ie. `RUNNING` or `STOPPING`
-    };
-
+    return _possibleConstructorReturn(this, (TerminalComponent.__proto__ || Object.getPrototypeOf(TerminalComponent)).apply(this, arguments));
   }
 
-  /* istanbul ignore else */
-  if (true) {
-    module.exports = Malarkey;
-  } else {
-    root.malarkey = Malarkey;
-  }
+  return TerminalComponent;
+}(_metalComponent2.default);
 
-})(this);
-
+_metalSoy2.default.register(TerminalComponent, templates);
+exports.TerminalComponent = TerminalComponent;
+exports.templates = templates;
+exports.default = templates;
+/* jshint ignore:end */
 
 /***/ })
 /******/ ]);

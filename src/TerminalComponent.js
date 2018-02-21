@@ -1,7 +1,9 @@
-import templates from './TerminalComponent.soy.js';
+'use strict';
+
 import Component from 'metal-component';
-import Soy from 'metal-soy';
 import malarkey from 'malarkey';
+import Soy from 'metal-soy';
+import templates from './TerminalComponent.soy.js';
 
 /**
  * This component simulates a terminal running the wedeploy cli.
