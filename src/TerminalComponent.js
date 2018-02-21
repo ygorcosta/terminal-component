@@ -329,7 +329,7 @@ class TerminalComponent extends Component {
         '',
         '  <span>!</span>   Usage: we [command] [flag]',
         '',
-        '  Command        Description',
+        '  Command         Description',
         '  <b>deploy</b>          Perform services deployment',
         '  <b>list</b>            Show list of projects and services',
         '  <b>console</b>         Open the console on your browser',
@@ -345,7 +345,7 @@ class TerminalComponent extends Component {
         '  <b>update</b>          Update CLI to the latest version',
         '  <b>uninstall</b>       Uninstall CLI',
         '',
-        '  Flag             Description',
+        '  Flag            Description',
         '  <b>-h</b>, <b>--help</b>      Show help message',
         '  <b>-v</b>, <b>--verbose</b>   Show more information about an operation',
         ''
